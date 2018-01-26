@@ -4,13 +4,13 @@ import {
 } from '../actions/types';
 
 
-export function searchResults(
+export const searchResults = (
   state = {
     tracks: [],
     isFetching: false
   },
   action
-) {
+) => {
   switch (action.type) {
     case REQUEST_SEARCH:
       return Object.assign({}, state, {

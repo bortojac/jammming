@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import TrackList from '../../tracklistComponents/Tracklist/Tracklist';
-import PlaylistModal from '../modalComponents/PlaylistModal';
+import PlaylistModal from '../modalComponents/PlaylistModal/PlaylistModal';
 import './playlist.css';
 
 class Playlist extends React.Component {

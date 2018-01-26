@@ -1,15 +1,12 @@
-import { connect } from 'react-redux';
-import PlaylistModal from './PlaylistModal';
-import {
-  updatePlaylistName
-} from '../../../../actions';
+ 
+//import { connect } from 'react-redux';
+//import PlaylistModal from './PlaylistModal';
+//import {
+ // updatePlaylistName
+//} from '../../../../store/actions';
 
-
-const mapStateToProps = state => {
-  return {
-    currentPlaylists: state.loadPlaylists.currentPlaylists
-  };
-}
+/*
+const mapStateToProps = state => ({ })
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -21,3 +18,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PlaylistModal);
+*/

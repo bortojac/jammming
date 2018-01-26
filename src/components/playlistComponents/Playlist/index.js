@@ -4,7 +4,7 @@ import {
   updatePlaylistName,
   saveToSpotify,
   loadPlaylists
-} from '../../../actions';
+} from '../../../store/actions';
 
 
 const mapStateToProps = state => {

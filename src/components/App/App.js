@@ -7,7 +7,7 @@ import Playlist from '../playlistComponents/Playlist';
 
 
 const App = ({ getAccessToken }) => {
-
+  console.log('worked');
   getAccessToken();
 
   return (

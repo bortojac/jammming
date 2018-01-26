@@ -3,7 +3,7 @@ import UserPlaylist from './UserPlaylist';
 import {
   updatePlaylistName,
   getPlaylistTracks
-} from '../../../../actions';
+} from '../../../../store/actions';
 
 
 const mapStateToProps = state => {

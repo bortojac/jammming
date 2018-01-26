@@ -3,8 +3,8 @@ import { AUTH_RECEIVED } from './types'
 export let accessToken = '';
 let expireTime = '';
 const clientID = '889519bd940a428087d936a46da18350';
-//const redirectURI = 'http://localhost:3000';
-const redirectURI = 'https://jammming.now.sh';
+const redirectURI = 'http://localhost:3000';
+//const redirectURI = 'https://jammming.now.sh';
 const spotifyURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&redirect_uri=${redirectURI}&scope=playlist-modify-public&response_type=token`;
 
 
@@ -13,13 +13,13 @@ const spotifyURL = `https://accounts.spotify.com/authorize?client_id=${clientID}
 // future update: add state to the spotify URL. This is more secure. create a variable that is radomized for each client state that we can use to check the request.
 // see https://developer.spotify.com/web-api/authorization-guide/#implicit_grant_flow
 
-export function authReceived() {
+export const authReceived = () => {
     return {
         type: AUTH_RECEIVED
     };
 }
 
-export function getAccessToken() {
+export const getAccessToken = () => {
 
     return dispatch => {
 
