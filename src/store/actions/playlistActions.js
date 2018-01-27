@@ -219,7 +219,7 @@ export const playlistTracksReceived = (jsonResponse) => {
     };
 }
 
-export const getPlaylistTracks = (playlistID) => {
+export const fetchPlaylistTracks = (playlistID) => {
     return dispatch => {
         dispatch(playlistTracksRequest());
         let headers = { Authorization: `Bearer ${accessToken}` };

@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import Playlist from './Playlist';
+import { getPlaylistTracks, getPlaylistName, getSavePlaylistFlag } from '@@store/selectors';
 import {
   updatePlaylistName,
   saveToSpotify,
   loadPlaylists
-} from '../../../store/actions';
+} from '@@store/actions';
 
 
 const mapStateToProps = state => {
   return {
-    playlistTracks: state.playlistTracks.tracks,
-    playlistName: state.playlistName.name,
-    saved: state.savePlaylist.saved,
-    currentPlaylists: state.currentPlaylists
+    playlistTracks: getPlaylistTracks(state),
+    playlistName: getPlaylistName(state),
+    saved: getSavePlaylistFlag(state)//,
+   // currentPlaylists: state.currentPlaylists
   };
 }
 

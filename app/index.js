@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     //console.log(path);
     //console.log(req);
     res.sendFile(path.join(__dirname, '../public/index.html'))
-    res.sendFile(path.join(__dirname, '../public/reset.css'));
+    //res.sendFile(path.join(__dirname, '../public/reset.css'));
 });
 
 app.listen(3000, () => console.log('Server is running'));

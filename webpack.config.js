@@ -5,16 +5,14 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: 'bundle.js'//,
+    //publicPath: '/'
   },
- // resolve: {
-   // alias: {
-   //   '@@modules': path.resolve(__dirname, 'src/modules'),
-   //   '@@store': path.resolve(__dirname, 'src/store')
-    // },
-    // extensions: ['', '.js'],
-    //},
+  resolve: {
+    alias: {
+      '@@store': path.resolve(__dirname, 'src/store')
+    }
+  },
     module: {
         rules: [
             {

@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import Track from './Track';
-import { addTrack, removeTrack } from '../../../store/actions';
+import { addTrack, removeTrack } from '@@store/actions';
+import { getPlaylistTracks } from '@@store/selectors';
 
 
 const mapStateToProps = state => ({
-    playlistTracks: state.playlistTracks.tracks
+    playlistTracks: getPlaylistTracks(state)
 })
 
 const mapDispatchToProps = dispatch => {

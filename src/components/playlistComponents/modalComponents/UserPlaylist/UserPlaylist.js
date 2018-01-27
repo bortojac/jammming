@@ -13,7 +13,7 @@ class UserPlaylist extends React.Component {
         let playlistName = this.props.playlistObj.name;
 
         // call the getPlaylistTracks function
-        this.props.getPlaylistTracks(playlistID);
+        this.props.fetchPlaylistTracks(playlistID);
         this.props.onNameChange(playlistName);
 
         // close the modal
@@ -29,7 +29,7 @@ class UserPlaylist extends React.Component {
 }
 
 UserPlaylist.propTypes = {
-    getPlaylistTracks: PropTypes.func.isRequired,
+    fetchPlaylistTracks: PropTypes.func.isRequired,
     playlistObj: PropTypes.shape({
         id: PropTypes.string,
         name: PropTypes.string
