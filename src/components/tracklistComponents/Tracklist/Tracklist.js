@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import './tracklist.css';
 import Track from '../Track';
 
@@ -7,7 +8,7 @@ import Track from '../Track';
 const Tracklist = ({ tracks, isRemoval }) => {
     return (
         <div className="Tracklist">
-            {tracks.map((track, index) => {
+            {_.map(tracks, (track, index) => {
                 return <Track
                     key={index}
                     track={track}

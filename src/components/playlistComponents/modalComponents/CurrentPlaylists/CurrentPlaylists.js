@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './currentPlaylists.css';
+import _ from 'lodash';
 import UserPlaylist from '../UserPlaylist';
 import { RiseLoader } from 'react-spinners';
 
@@ -15,7 +16,7 @@ const CurrentPlaylists = ({ currentPlaylists, loading, closeModal}) => {
                 loading={loading}
             />
             <ul className="playlists">
-                {currentPlaylists.map(
+                {_.map(currentPlaylists,
                     playlistObj => {
                         return <UserPlaylist
                             key={playlistObj.id}

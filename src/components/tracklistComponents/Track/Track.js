@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import './track.css';
 
 class Track extends React.Component {
@@ -10,7 +11,7 @@ class Track extends React.Component {
     }
 
     handleAddTrack() {
-        if (!this.props.playlistTracks.map(playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
+        if (!_.map(this.props.playlistTracks, playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
             this.props.onAdd(this.props.track);
         } else { return }
     }
@@ -26,7 +27,7 @@ class Track extends React.Component {
             // if the track is already in the playlist, don't put a + sign. For now we are not allowing duplicate tracks.
             // It makes it difficult to remove tracks separately by their ID.
             // Creating a unique key is probably outside the scope of this project, given the limited use cases for duplicates
-            if (this.props.playlistTracks.map(playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
+            if (_.map(this.props.playlistTracks, playlistTrack => playlistTrack.id).includes(this.props.track.id)) {
                 // return a checkmark
                 return (<a onClick={this.handleAddTrack} className='Track-action'>&#10003;</a>);
             }
