@@ -6,7 +6,7 @@ import './playlistModal.css';
 
 Modal.setAppElement('#root');
 
-const PlaylistModal = ({ modalIsOpen, closeModal, currentPlaylists, getPlaylistTracks, onNameChange }) => {
+const PlaylistModal = ({ modalIsOpen, closeModal }) => {
     return (
         <div>
             <Modal
@@ -26,15 +26,7 @@ const PlaylistModal = ({ modalIsOpen, closeModal, currentPlaylists, getPlaylistT
 }
 
 PlaylistModal.propTypes = {
-    getPlaylistTracks: PropTypes.func,
-    currentPlaylists: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            name: PropTypes.string
-        }).isRequired
-    ),
     closeModal: PropTypes.func.isRequired,
-    onNameChange: PropTypes.func.isRequired,
     modalIsOpen: PropTypes.bool.isRequired
 }
 

@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
         this.state = {
             searchTerm: ''
         };
-        this.search = this.search.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
     }
 
     // search Spotify API with onSearch passed down from App.js
-    search() {
+    handleSearch() {
         if (this.state.searchTerm) {
             this.props.onSearch(this.state.searchTerm);
         }
@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
     // we want enter to trigger search
     handleKeyDown(event) {
         if (event.keyCode == 13 && this.state.searchTerm) {
-            this.search();
+            this.handleSearch();
         }
     }
 
@@ -43,7 +43,7 @@ class SearchBar extends React.Component {
                     onKeyDown={this.handleKeyDown}
                     placeholder="Enter A Song, Album, or Artist"
                 />
-                <a onClick={this.search} >SEARCH</a>
+                <a onClick={this.handleSearch} >SEARCH</a>
             </div>
         );
     }

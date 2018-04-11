@@ -6,11 +6,15 @@ import Playlist from '../playlistComponents/Playlist';
 
 
 
-const App = ({ getAccessToken }) => {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    // get token
+    this.props.getAccessToken();
+  }
 
-  getAccessToken();
-
-  return (
+  render() {
+    return (
     <div>
       <h1>Ja<span className="highlight">mmm</span>ing</h1>
       <div className="App">
@@ -21,7 +25,8 @@ const App = ({ getAccessToken }) => {
         </div>
       </div>
     </div>
-  );
+    );
+  }
 }
 
 export default App;

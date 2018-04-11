@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 import TrackList from '../../tracklistComponents/Tracklist/Tracklist';
-import PlaylistModal from '../modalComponents/PlaylistModal';
+import PlaylistModal from '../modalComponents/PlaylistModal/PlaylistModal';
 import './playlist.css';
 
 class Playlist extends React.Component {
@@ -37,7 +38,7 @@ class Playlist extends React.Component {
 
     handleSave() {
         // save to spotify
-        let trackURIs = this.props.playlistTracks.map(track => track.uri);
+        let trackURIs = _.map(this.props.playlistTracks, track => track.uri);
         this.props.onSave(this.props.playlistName, trackURIs);
     }
 

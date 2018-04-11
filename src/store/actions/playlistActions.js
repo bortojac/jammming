@@ -14,7 +14,7 @@ import { accessToken } from './authActions'
 
 // this action uses thunk middleware by returning a function and is needed
 // since adding a track changes the playlist (i.e. it needs to be saved)
-export function addTrack(track) {
+export const addTrack = (track) => {
     return (dispatch, getState) => {
         let name = getState().playlistName.playlistName
         dispatch(saveNeeded(name));
@@ -28,7 +28,7 @@ export function addTrack(track) {
 
 // this action uses thunk middleware by returning a function and is needed 
 //since removing a track changes the playlist (i.e. it needs to be saved)
-export function removeTrack(track) {
+export const removeTrack = (track) => {
     return (dispatch, getState) => {
         let name = getState().playlistName.playlistName
         dispatch(saveNeeded(name));
@@ -41,14 +41,14 @@ export function removeTrack(track) {
     }
 }
 
-export function saveNeeded(name) {
+export const saveNeeded = (name) => {
     return {
         type: SAVE_NEEDED,
         playlistName: name
     };
 }
 
-export function saveFinished(name, id) {
+export const saveFinished = (name, id) => {
     return {
         type: SAVE_FINISHED,
         playlistName: name,
@@ -59,7 +59,7 @@ export function saveFinished(name, id) {
 // saveToSpotify action.
 //  - use thunk middleware to dispatch appropriate actions for logging saved state
 //  - use thunk middleware to work enable async actions
-export function saveToSpotify(playlistName, trackURIs) {
+export const saveToSpotify = (playlistName, trackURIs) => {
 
     return dispatch => {
         let token = accessToken;
@@ -143,7 +143,7 @@ export function saveToSpotify(playlistName, trackURIs) {
 
 // this action does not absolutely need to pass dispatch as an argument, but we need to use thunk middleware to dispatch the
 // saveNeeded action - idea being that the playlist name has changed so a save is needed.
-export function updatePlaylistName(name) {
+export const updatePlaylistName = (name) => {
     return dispatch => {
         dispatch(saveNeeded(name))
         //dispatching an "updatePlaylistName" action below. return does not work since using thunk
@@ -154,13 +154,13 @@ export function updatePlaylistName(name) {
     }
 }
 
-export function playlistsRequest() {
+export const playlistsRequest = () => {
     return {
         type: PLAYLISTS_REQUEST
     }
 }
 
-export function playlistsRecieved(jsonResponse) {
+export const playlistsRecieved = (jsonResponse) => {
     return {
         type: PLAYLISTS_RECIEVED,
         currentPlaylists: jsonResponse.items.map(
@@ -172,7 +172,7 @@ export function playlistsRecieved(jsonResponse) {
     }
 }
 
-export function loadPlaylists() {
+export const loadPlaylists = () => {
     return dispatch => {
         dispatch(playlistsRequest())
         let token = accessToken;
@@ -192,14 +192,14 @@ export function loadPlaylists() {
     }
 }
 
-export function playlistTracksRequest() {
+export const playlistTracksRequest = () => {
     return {
         type: PLAYLIST_TRACKS_REQUEST
     };
 }
 
-// helper function gor playlistTracksRecieved
-function getTracks(jsonResponse) {
+// helper function for playlistTracksRecieved
+const getTracks = (jsonResponse) => {
     if (jsonResponse.items) {
         return jsonResponse.items.map(
             item => ({
@@ -212,14 +212,14 @@ function getTracks(jsonResponse) {
         );
     }
 }
-export function playlistTracksReceived(jsonResponse) {
+export const playlistTracksReceived = (jsonResponse) => {
     return {
         type: PLAYLIST_TRACKS_RECEIVED,
         tracks: getTracks(jsonResponse),
     };
 }
 
-export function getPlaylistTracks(playlistID) {
+export const fetchPlaylistTracks = (playlistID) => {
     return dispatch => {
         dispatch(playlistTracksRequest());
         let headers = { Authorization: `Bearer ${accessToken}` };

@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
-import { fetchSearchResults } from '../../../actions';
+import { fetchSearchResults } from '@@store/actions';
+import { getFetchingFlag } from '@@store/selectors';
 
 
 const mapStateToProps = state => ({
-  searchResults: state.searchResults.tracks
+  isFetching: getFetchingFlag(state)
 })
 
 const mapDispatchToProps = dispatch => {

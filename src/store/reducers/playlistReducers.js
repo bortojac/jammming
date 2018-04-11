@@ -29,11 +29,11 @@ function removeTrack(state, track) {
     });
 }
 
-export function playlistTracks(
+export const playlistTracks = (
     state = {
         tracks: [],
         tracksLoading: false
-    }, action) {
+    }, action) => {
     switch (action.type) {
         case ADD_TRACK:
             return addTrack(state, action.track);
@@ -54,14 +54,14 @@ export function playlistTracks(
     }
 }
 
-export function savePlaylist(
+export const savePlaylist = (
     state = {
         saved: false,
         playlistName: '',
         playlistID: ''
     },
     action
-) {
+) => {
     switch (action.type) {
         case SAVE_NEEDED:
             return Object.assign({}, state, {
@@ -80,12 +80,12 @@ export function savePlaylist(
 }
 
 // this reducer governs the name of the playlist. the one managed by savePlaylist is in a different slice of the state that is just for documentation purposes
-export function playlistName(
+export const playlistName = (
     state = {
         name: 'New Playlist'
     },
     action
-) {
+) => {
     switch (action.type) {
 
         case UPDATE_PLAYLIST_NAME:
@@ -97,13 +97,13 @@ export function playlistName(
     }
 }
 
-export function loadPlaylists(
+export const loadPlaylists = (
     state = {
         loading: false,
         currentPlaylists: []
     },
     action
-) {
+) => {
     switch (action.type) {
         case PLAYLISTS_REQUEST:
             return Object.assign({}, state, {

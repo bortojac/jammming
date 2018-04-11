@@ -5,14 +5,14 @@ import {
 import { accessToken } from './authActions'
 
 
-export function requestSearch(term) {
+export const requestSearch = (term) => {
     return {
         type: REQUEST_SEARCH,
         term: term
     };
 }
 
-export function receiveSearch(jsonResponse) {
+export const receiveSearch = (jsonResponse) => {
     return {
         type: RECEIVE_SEARCH,
         jsonSearchResults: jsonResponse.tracks.items.map(track => ({
@@ -26,7 +26,7 @@ export function receiveSearch(jsonResponse) {
     };
 }
 
-export function fetchSearchResults(term) {
+export const fetchSearchResults = (term) => {
     return dispatch => {
         dispatch(requestSearch(term));
         return fetch(

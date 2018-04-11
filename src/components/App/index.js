@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import App from './App';
-import { getAccessToken } from '../../actions';
+import { getAccessToken } from '../../store/actions';
+import { isTokenGranted } from '../../store/selectors';
 
 
-const mapStateToProps = state => ({ tokenGranted: state.token.tokenGranted })
+const mapStateToProps = state => ({ tokenGranted: isTokenGranted(state) })
 
 const mapDispatchToProps = dispatch => {
   return {

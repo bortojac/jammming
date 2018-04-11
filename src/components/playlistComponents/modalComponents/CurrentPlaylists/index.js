@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import CurrentPlaylists from './CurrentPlaylists';
+import { getPlaylistsLoadingFlag, getCurrentPlaylists } from '@@store/selectors';
 
 
 const mapStateToProps = state => {
   return {
-    loading: state.loadPlaylists.loading,
-    currentPlaylists: state.loadPlaylists.currentPlaylists
+    loading: getPlaylistsLoadingFlag(state),
+    currentPlaylists: getCurrentPlaylists(state)
   };
 }
 
