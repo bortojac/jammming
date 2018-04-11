@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "emotion": "^8.0.12",
+    "express": "^4.16.3",
     "lodash": "^4.17.4",
+    "path": "^0.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
