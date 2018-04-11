@@ -43038,6 +43038,9 @@ var ModalPortal = function (_Component) {
       if (_this.moveFromContentToOverlay === null) {
         _this.shouldClose = false;
       }
+      if (_this.props.shouldCloseOnOverlayClick) {
+        _this.shouldClose = true;
+      }
     };
 
     _this.handleContentOnMouseUp = function () {
