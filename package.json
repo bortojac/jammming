@@ -16,6 +16,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "server": "node app",
     "start": "webpack && node app",
     "build": "webpack"
   },
